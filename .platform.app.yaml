@@ -1,0 +1,26 @@
+# .platform.app.yaml
+
+# The name of this application, which must be unique within a project.
+name: app
+
+# The type key specifies the language and version for your application.
+type: 'nodejs:14'
+
+# build:
+#     flavor: none
+
+# dependencies:
+#     nodejs:
+#         yarn: "^1.22.0"
+
+# The hooks that will be triggered when the package is deployed.
+hooks:
+    build: |
+        # yarn install --frozen-lockfiles
+        # yarn build --frozen-lockfiles
+        npm run build
+
+# The configuration of the application when it is exposed to the web.
+web:
+    commands:
+        start: npx next start -p $PORT
